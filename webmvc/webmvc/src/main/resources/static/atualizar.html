@@ -7,24 +7,48 @@
 	<script src="controller.js"></script>
 </head>
 <body>
-	Esta é a inserir <hr>
+	Esta é a atualizar <hr>
+	
+	<hr>
 	<a href= "index.html"> Home </a> |
 	<a href= "lista.html"> Lista </a> |
 	<a href= "inserir.html"> Inserir </a> |
 	<a href= "atualizar.html"> Atualizar </a> |
+	
 	<div ng-app="myApp" ng-controller="myCtrl">
-		<form>
-			Id:	<br><input type="number" ng-model="id" readonly><br> 
+		<form>	
+			Id:	<br><input type="number" ng-model="id"><br> 
 			Nome: <br><input type="text" ng-model="nome" size="20" placeholder="Digite o nome do serviço"><br>
 			Categoria: <br><input type="text" ng-model="categoria" size="20" placeholder="Categoria"><br>
-			Data: <br><input type="date" ng-model="data" required><br>
 			Status
 			<select ng-model="pago">
 				<option>true</option>
 				<option>false</option>
 			</select>
-			<br><button ng-click="salvar()">Enviar</button>
+		
 		</form>
+		
+		<table border="1">
+			<tr>
+				<th>id</th>
+				<th>nome</th>
+				<th>data</th>
+				<th>categoria</th>
+				<th>pago</th>
+				<th>ações</th>
+			</tr>
+			<tr ng-repeat="manutencao in manutencoes">
+				<td>{{manutencao.id}}</td>
+				<td>{{manutencao.nome}}</td>
+				<td>{{manutencao.categoria}}</td>
+				<td>{{manutencao.pago}}</td>
+				<td>
+					<button ng-click="put()">Atualizar</button>
+					<button onclick="location.href='atualizar.html'">Refresh</button>
+				</td>
+			</tr>
+		</table>
 	</div>
+	<hr>
 </body>
 </html>

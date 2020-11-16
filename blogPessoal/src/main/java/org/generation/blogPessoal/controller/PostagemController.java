@@ -57,5 +57,25 @@ public class PostagemController {
 	public void delete (@PathVariable long id) {
 		repository.deleteById(id);
 	}
+	
+	@GetMapping(value = "/maior")
+	public ResponseEntity<List<Postagem>> findAllMaior(){
+		return ResponseEntity.ok(repository.findAllMaior());
+	}
+	
+	@GetMapping(value = "/ordem")
+	public ResponseEntity<List<Postagem>> anoDesc(){
+		return ResponseEntity.ok(repository.anoDesc());
+	}
+	
+	@GetMapping(value = "/asc")
+	public ResponseEntity<List<Postagem>> anoAsc(){
+		return ResponseEntity.ok(repository.anoAsc());
+	}
+	
+	@GetMapping(value = "/intervalo")
+	public ResponseEntity<List<Postagem>> anosIntervalo(){
+		return ResponseEntity.ok(repository.anosIntervalo());
+	}
 }
 	
